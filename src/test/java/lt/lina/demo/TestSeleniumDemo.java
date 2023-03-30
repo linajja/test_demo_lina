@@ -56,8 +56,32 @@ public class TestSeleniumDemo {
 
         Assert.assertTrue(
                 actualResult.contains(expectedResult),
-                String.format("Actual: %s; Expected: %s", actualResult,expectedResult)
+                String.format("Actual: %s; Expected: %s", actualResult, expectedResult)
         );
+
+    }
+
+    @Test
+    public void testEmailInput_WithValidEmail() {
+        String messageEmail = "lina.benetiene@gmail.com";
+        String expectedResult = "lina.benetiene@gmail.com";
+        String actualResult;
+
+        WebElement inputEmail = driver.findElement(By.xpath("//input[@id='userEmail']"));
+        inputEmail.sendKeys(messageEmail);
+
+        WebElement buttonSubmit = driver.findElement(By.xpath("//button[@id='submit']"));
+        buttonSubmit.click();
+
+        WebElement paragraphEmail = driver.findElement(By.xpath("//p[@id='email']"));
+        actualResult = paragraphEmail.getText();
+
+
+        Assert.assertTrue(
+                actualResult.contains(expectedResult),
+                String.format("Actual: %s; Expected: %s", actualResult, expectedResult)
+        );
+
 
     }
 
