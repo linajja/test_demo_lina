@@ -1,6 +1,7 @@
 package lt.lina.pom.pages.demoqa;
 
 import lt.lina.pom.pages.Common;
+import lt.lina.pom.pages.Locators;
 import org.openqa.selenium.By;
 
 public class TextBoxPage {
@@ -17,7 +18,7 @@ public class TextBoxPage {
 
     public static void enterFullname(String text) {
         Common.sendKeysToElement(
-                By.xpath("//input[@id='userName']"),
+                Locators.Demoqa.TestBox.inputUserName,
                 text
         );
 
@@ -25,17 +26,17 @@ public class TextBoxPage {
 
     public static void clickOnButtonSubmit() {
 
-        Common.clickOnElement(By.xpath("//button[@id='submit']"));
+        Common.clickOnElement(Locators.Demoqa.TestBox.buttonSubmit);
     }
 
     public static String readFullnameMessage() {
 
-        return Common.getTextFromElement(By.xpath("//p[@id='name']"));
+        return Common.getTextFromElement(Locators.Demoqa.TestBox.paragrafName);
     }
 
     public static void enterEmailAddress(String email) {
    Common.sendKeysToElement(
-           By.xpath("//input[@id='userEmail']"),
+           Locators.Demoqa.TestBox.inputUserEmail,
            email
    );
 
@@ -43,6 +44,6 @@ public class TextBoxPage {
 
 
     public static String readEmailMessage() {
-        return Common.getTextFromElement(By.xpath("//p[@id='email']"));
+        return Common.getTextFromElement(Locators.Demoqa.TestBox.paragrafEmail);
     }
 }
