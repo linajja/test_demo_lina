@@ -38,62 +38,43 @@ public class BasicFirstFormTest {
 
     }
 
-//    @Test
-//    public void testTwoInputField_CorrectInput() {
-//
-//        String numberInputFieldA ="1";
-//        String numberInputFieldB ="3";
-//        String expectedResult = "4";
-//        String actualResult;
-//
-//        WebElement inputFieldA = driver.findElement(By.xpath("//input[@id='sum1']"));
-//        inputFieldA.sendKeys(numberInputFieldA);
-//
-//        WebElement inputFieldB = driver.findElement(By.xpath("//input[@id='sum2']"));
-//        inputFieldB.sendKeys(numberInputFieldB);
-//
-//
-//        WebElement buttonSubmit = driver.findElement(By.xpath("//button[@onclick='return total()']"));
-//        buttonSubmit.click();
-//
-//        WebElement paragraphShowMessage = driver.findElement(By.xpath("//span[@id='displayvalue']"));
-//        actualResult = paragraphShowMessage.getText();
-//
-//
-//        Assert.assertTrue(
-//                actualResult.equals(expectedResult),
-//                String.format("Actual: %s; Expected: %s", actualResult, expectedResult)
-//        );
-//
-//    }
-//    @Test
-//    public void testTwoInputField_InCorrectInput() {
-//
-//        String numberInputFieldA ="1";
-//        String numberInputFieldB ="3";
-//        String expectedResult = "NaN";
-//        String actualResult;
-//
-//        WebElement inputFieldA = driver.findElement(By.xpath("//input[@id='sum1']"));
-//        inputFieldA.sendKeys(numberInputFieldA);
-//
-//        WebElement inputFieldB = driver.findElement(By.xpath("//input[@id='sum2']"));
-//        inputFieldB.sendKeys(numberInputFieldB);
-//
-//
-//        WebElement buttonSubmit = driver.findElement(By.xpath("//button[@onclick='return total()']"));
-//        buttonSubmit.click();
-//
-//        WebElement paragraphShowMessage = driver.findElement(By.xpath("//span[@id='displayvalue']"));
-//        actualResult = paragraphShowMessage.getText();
-//
-//
-//        Assert.assertTrue(
-//                actualResult.equals(expectedResult),
-//                String.format("Actual: %s; Expected: %s", actualResult, expectedResult)
-//        );
+    @Test
+    public void testTwoInputField_CorrectInput() {
 
-//}
+        String numberInputFieldA ="1";
+        String numberInputFieldB ="3";
+        String expectedResult = "4";
+        String actualResult;
+
+
+        BasicFirstFormTestPage.enterFieldA(numberInputFieldA);
+        BasicFirstFormTestPage.enterFieldB(numberInputFieldB);
+        BasicFirstFormTestPage.clickOnButton();
+        actualResult = BasicFirstFormTestPage.readSum();
+
+
+        Assert.assertTrue(
+                actualResult.equals(expectedResult),
+                String.format("Actual: %s; Expected: %s", actualResult, expectedResult)
+        );
+
+    }
+    @Test
+    public void testTwoInputField_InCorrectInput() {
+
+        String numberInputFieldA ="a";
+        String numberInputFieldB ="3";
+        String expectedResult = "NaN";
+        String actualResult;
+
+        BasicFirstFormTestPage.enterFieldA(numberInputFieldA);
+        BasicFirstFormTestPage.enterFieldB(numberInputFieldB);
+        BasicFirstFormTestPage.clickOnButton();
+        actualResult = BasicFirstFormTestPage.readSum();
+
+        Assert.assertEquals(actualResult, expectedResult);
+
+}
 
     @AfterMethod
     public void tearDown() {
