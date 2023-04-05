@@ -1,25 +1,18 @@
 package lt.lina.pom.tests.seleniumeasy;
-
 import lt.lina.pom.pages.seleniumeasy.BasicFirstFormTestPage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import lt.lina.pom.tests.TestBase;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 
-public class BasicFirstFormTest {
+public class BasicFirstFormTest extends TestBase {
 
     @BeforeMethod
+    @Override
     public void setUp() {
         BasicFirstFormTestPage.open();
     }
-
-    @Test
-    public void seleniumDemo() {
-    }
-
     @Test
     public void testSingleInputField_InputLabasVakaras() {
 
@@ -76,10 +69,5 @@ public class BasicFirstFormTest {
 
 }
 
-    @AfterMethod
-    public void tearDown() {
-        BasicFirstFormTestPage.closeDriver();
 
-
-    }
 }

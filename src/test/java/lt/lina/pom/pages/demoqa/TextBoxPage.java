@@ -12,10 +12,6 @@ public class TextBoxPage {
 
     }
 
-    public static void closeDriver() {
-        Common.closeDriver();
-    }
-
     public static void enterFullname(String text) {
         Common.sendKeysToElement(
                 Locators.Demoqa.TestBox.inputUserName,
@@ -35,10 +31,10 @@ public class TextBoxPage {
     }
 
     public static void enterEmailAddress(String email) {
-   Common.sendKeysToElement(
-           Locators.Demoqa.TestBox.inputUserEmail,
-           email
-   );
+        Common.sendKeysToElement(
+                Locators.Demoqa.TestBox.inputUserEmail,
+                email
+        );
 
     }
 

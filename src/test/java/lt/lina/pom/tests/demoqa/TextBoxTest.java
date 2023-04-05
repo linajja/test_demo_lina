@@ -1,22 +1,19 @@
 package lt.lina.pom.tests.demoqa;
 
 import lt.lina.pom.pages.demoqa.TextBoxPage;
+import lt.lina.pom.tests.TestBase;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
+public class TextBoxTest extends TestBase {
 
-public class TextBoxTest {
     @BeforeMethod
+    @Override
     public void setUp() {
-
         TextBoxPage.open();
     }
-    @Test
-    public void seleniumDemo() {
-    }
+
     @Test
     public void testFullNameImput_NameValueLina() {
 
@@ -33,6 +30,7 @@ public class TextBoxTest {
                 String.format("Actual: %s; Expected: %s", actualResult, expectedResult)
         );
     }
+
     @Test
     public void testEmailInput_WithValidEmail() {
         String messageEmail = "lina.benetiene@gmail.com";
@@ -48,9 +46,6 @@ public class TextBoxTest {
                 String.format("Actual: %s; Expected: %s", actualResult, expectedResult)
         );
     }
-    @AfterMethod
-    public void tearDown() {
-        TextBoxPage.closeDriver();
-    }
+
 }
 
